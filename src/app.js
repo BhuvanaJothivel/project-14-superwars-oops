@@ -1,9 +1,9 @@
 const PLAYERS = [
     "Spiderman",
     "Captain America",
-    //"Wonderwoman",
+    "Wonderwoman",
     // "Popcorn",
-     "Gemwoman",
+    // "Gemwoman",
     // "Bolt",
     // "Antwoman",
     // "Mask",
@@ -42,29 +42,29 @@ class Player {
     // Create a player for displaying
     view = () => {
 
-        let players = document.createElement('div');
-        players.classList.add('player');
-        players.setAttribute('data-id', this.id);
+        let player = document.createElement('div');
+        player.classList.add('player');
+        player.setAttribute('data-id', this.id);
         let image = document.createElement('img');
         image.setAttribute('src', this.image);
-        let playerName = document.createElement('div');
-        playerName.textContent = this.name;
+        let name = document.createElement('div');
+        name.textContent = this.name;
         let strength = document.createElement('div');
         strength.textContent = this.strength;
         strength.className = 'strength';
-        players.append(image, playerName, strength);
-        return players;
+        player.append(image, name, strength);
+        return player;
         
     }
 }
 
 // Superwar Class
 class Superwar {
-        constructor(player) {
-            this.player = player.map((player, n) => {
+        constructor(players) {
+            this.players = players.map((player, n) => {
                 let type = '';
                 if((n % 2 == 0))
-                    type = 'hero'; 
+                type = 'hero' ;
                 else
                     type = 'villain';
                 return new Player(n, player, type);
